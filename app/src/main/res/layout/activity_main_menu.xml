@@ -7,15 +7,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingHorizontal="10dp"
-    android:paddingVertical="10dp"
+    android:padding="10dp"
     tools:context=".test.Activity.MainMenu">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="20dp"
+        android:padding="10dp">
         <TextView
             android:id="@+id/tv_menyapa"
             android:layout_width="match_parent"
@@ -77,13 +77,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:gravity="center"
         android:orientation="vertical"
-        android:paddingVertical="5dp"
-        android:layout_weight="10">
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:gravity="center"
             android:orientation="vertical">
 
             <Button
@@ -91,19 +93,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="3dp"
+                android:layout_weight="3"
+                android:padding="10dp"
                 android:text="@string/misi_aktif"
                 android:textColor="@color/colorPrimary"
                 android:textSize="30sp"
-                android:textStyle="bold"
-                android:layout_weight="3"/>
+                android:textStyle="bold" />
 
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="10dp"
                 android:text="@string/misi_selesai"
                 android:textSize="30sp"
-                android:layout_weight="1"
                 android:textStyle="bold"
 
 
@@ -118,13 +122,24 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="end"
-        android:layout_weight="1">;
+        android:layout_weight="1"
+        android:padding="10dp">
 
         <Button
-            android:id="@+id/btn_log_out"
+            android:id="@+id/btn_db"
+            android:text="db"
+            android:hint="database"
+            android:textColor="@android:color/holo_green_dark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_red_light"/>
+            />
+        <Button
+            android:id="@+id/btn_log_out"
+            android:text="log out"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 
 
