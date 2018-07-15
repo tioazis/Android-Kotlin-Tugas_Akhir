@@ -18,7 +18,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".test.Activity.MainMenu"
-            android:label="@string/app_name">
+            android:label="Menu Utama">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -39,8 +39,6 @@ class DbOnGoingMission (var context: Context): SQLiteOpenHelper(context, DATABAS
         Toast.makeText(context,"Database Created",Toast.LENGTH_SHORT).show()
     }
 
-
-
     fun insertData(card: Card) {
         val db = this.writableDatabase
         var cv = ContentValues()
@@ -55,9 +53,9 @@ class DbOnGoingMission (var context: Context): SQLiteOpenHelper(context, DATABAS
         var result = db.insert(TABLE_NAME, null, cv)
 
         if (result == -1.toLong())
-            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Data Gagal Dimasukkan", Toast.LENGTH_SHORT).show()
         else
-            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Data Sukses Dimasukkan", Toast.LENGTH_SHORT).show()
     }
 
     fun readData(): MutableList<Card> {
@@ -73,8 +71,8 @@ class DbOnGoingMission (var context: Context): SQLiteOpenHelper(context, DATABAS
                 card.title = result.getString(result.getColumnIndex(COL_TITLE))
                 card.instruction = result.getString(result.getColumnIndex(COL_INSTRUCTION))
                 card.type = result.getString(result.getColumnIndex(COL_TYPE)).toInt()
-                card.exp = result.getString(result.getColumnIndex(COL_TYPE)).toInt()
-                card.reward = result.getString(result.getColumnIndex(COL_TYPE)).toInt()
+                card.exp = result.getString(result.getColumnIndex(COL_EXP)).toInt()
+                card.reward = result.getString(result.getColumnIndex(COL_REWARD)).toInt()
                 card.level = result.getString(result.getColumnIndex(COL_LEVEL)).toInt()
                 list.add(card)
             } while (result.moveToNext())
