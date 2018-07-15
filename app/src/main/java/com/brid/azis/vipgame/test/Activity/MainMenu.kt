@@ -24,6 +24,7 @@ class MainMenu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activity_main_menu)
+        toast("${tv_menyapa.text} ${tv_pemain_nama.text} Level Anda ${tv_pemain_level.text}")
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this)
         mNfcMessage = NFCutil.retrieveNFCMessage(this.intent)
@@ -43,7 +44,6 @@ class MainMenu : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        toast("on resume")
         mNfcAdapter?.let {
             NFCutil.enableNFCInForeground(it, this, javaClass)
         }
@@ -51,7 +51,6 @@ class MainMenu : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        toast("on pause")
 
         mNfcAdapter?.let {
             NFCutil.disableNFCInForeground(it, this)

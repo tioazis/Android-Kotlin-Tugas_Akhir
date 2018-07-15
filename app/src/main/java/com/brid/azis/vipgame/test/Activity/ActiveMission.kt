@@ -34,21 +34,24 @@ class ActiveMission : AppCompatActivity() {
         initData()
 
         list.layoutManager = LinearLayoutManager(this)
-        list.adapter = MissionViewAdapter(this,cards)
+        list.adapter = MissionViewAdapter(cards) { dataCard: DataCard -> cardsClicked(dataCard) }
+
     }
 
-    private fun initData(){
+    private fun initData() {
         var data = db.readData()
-
         val dayDate = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Date())
-
 
         for (i in 0..(data.size - 1)){
             cards.add(DataCard(data.get(i).title,data.get(i).instruction, " $dayDate"))
         }
 
-        //logic date bermasalah
+        /* TODO :        perbaiki sistem pengambilan kalender*/
 
 
+    }
+
+    private fun cardsClicked(cards:DataCard){
+        Toast.makeText(this,"Clicked: ${cards.judul}",Toast.LENGTH_SHORT).show()
     }
 }

@@ -45,10 +45,10 @@ object NFCutil {
                 }
 
             } else {
-                return "Touch NFC tag to read data"
+                return "Dekatkan Kartu Untuk Membaca Isinya"
             }
         }
-        return "Touch NFC tag to read data"
+        return "Dekatkan Kartu Untuk Membaca Isinya"
     }
 
 

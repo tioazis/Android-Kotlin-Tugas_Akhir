@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:padding="10dp"
-            android:text="Insert" />
+            android:text="Masukkan Data" />
 
     </LinearLayout>
 
@@ -99,21 +99,21 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="Read"/>
+            android:text="Baca DB"/>
         <Button
             android:id="@+id/btn_update"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="Update"/>
+            android:text="Perbarui DB"/>
         <Button
             android:id="@+id/btn_delete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="Delete"/>
+            android:text="Hapus DB"/>
     </LinearLayout>
 
     <ScrollView
