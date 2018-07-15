@@ -4,14 +4,9 @@ import android.content.Intent
 import android.nfc.NfcAdapter
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import com.brid.azis.vipgame.R
-import com.brid.azis.vipgame.R.layout.activity_insert_db_test
 import com.brid.azis.vipgame.R.layout.activity_main_menu
 import com.brid.azis.vipgame.test.Util.NFCutil
-import kotlinx.android.synthetic.main.activity_insert_db_test.*
 import kotlinx.android.synthetic.main.activity_main_menu.*
-import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.toast
 
 
@@ -35,7 +30,7 @@ class MainMenu : AppCompatActivity() {
         }
 
         btn_misi_aktif.setOnClickListener{
-            startActivity(Intent(this,ActiveMission::class.java))
+            startActivity(Intent(this,ActiveCards::class.java))
         }
 
 

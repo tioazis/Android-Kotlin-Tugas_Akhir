@@ -1,18 +1,15 @@
 package com.brid.azis.vipgame.test.Adapter
 
-import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.OrientationEventListener
 import android.view.ViewGroup
 import android.view.View
 import android.widget.TextView
 import com.brid.azis.vipgame.R
 import com.brid.azis.vipgame.test.DataModel.DataCard
-import org.jetbrains.anko.sdk25.coroutines.onClick
 
-class MissionViewAdapter( val cards:List<DataCard>, val clickListener: (DataCard) -> Unit):
-        RecyclerView.Adapter<MissionViewAdapter.CardViewHolder>(){
+class ActiveCardsViewAdapter(val cards:List<DataCard>, val clickListener: (DataCard) -> Unit):
+        RecyclerView.Adapter<ActiveCardsViewAdapter.CardViewHolder>(){
 
 
 

@@ -8,7 +8,7 @@ import android.widget.Toast
 import com.brid.azis.vipgame.test.Model.Card
 
 val DATABASE_NAME = "DbTugasAkhir"
-val TABLE_NAME = "DbOnGoingMission"
+private val TABLE_NAME = "DbOnGoingMission"
 val COL_ID = "id"
 val COL_TITLE = "title"
 val COL_INSTRUCTION = "instruction"
