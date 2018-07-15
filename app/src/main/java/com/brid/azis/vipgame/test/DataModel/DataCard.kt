@@ -1,4 +1,5 @@
 package com.brid.azis.vipgame.test.DataModel
 
-class DataCard {
-}
+data class DataCard (val judul:String?,
+                     val petunjuk:String?,
+                     val tanggal:String?)

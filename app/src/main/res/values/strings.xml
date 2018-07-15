@@ -5,4 +5,14 @@
     <string name="text_level_anda">Level Anda :</string>
     <string name="misi_selesai">Misi Selesai</string>
     <string name="misi_aktif">Misi AKtif</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="TOAST_PETUNJUK">Silahkan dekatkan kartu anda pada perangkat android anda</string>
+    <string name="penjelasankartu">penjelasan kartunya adalah sebagai berikut : Silahkan maju ke salah satu guru anda dan baca kata kata yang ada di kartu ini, setelah itu silahkan lakukan penyetoran misi ke pembimbing anda yang berada di kantor kepala sekolah di sampingnya satpam kantin kampus PENS di surabaya</string>
+    <string name="text_misi_masuk_pada_tanggal">Misi dimasukkan pada : </string>
+
+    <!-- Data Awal -->
+
+    
 </resources>

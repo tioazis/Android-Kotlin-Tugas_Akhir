@@ -17,14 +17,13 @@ import org.jetbrains.anko.toast
 
 class MainMenu : AppCompatActivity() {
 
+    //NFC Variabel
     private var mNfcAdapter: NfcAdapter? = null
     private var mNfcMessage: String? = null //pesan NFC
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activity_main_menu)
-
-        toast("on create")
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this)
         mNfcMessage = NFCutil.retrieveNFCMessage(this.intent)
@@ -33,6 +32,13 @@ class MainMenu : AppCompatActivity() {
         btn_db.setOnClickListener{
             startActivity(Intent(this,InsertDbTest::class.java))
         }
+
+        btn_misi_aktif.setOnClickListener{
+            startActivity(Intent(this,ActiveMission::class.java))
+        }
+
+
+
     }
 
     override fun onResume() {
@@ -56,4 +62,8 @@ class MainMenu : AppCompatActivity() {
         super.onNewIntent(intent)
         toast(mNfcMessage!! + " test ")
     }
+
+
+
+
 }

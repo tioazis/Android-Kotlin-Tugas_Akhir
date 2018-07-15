@@ -20,7 +20,7 @@ class InsertDbTest : AppCompatActivity() {
         val context = this
         var db = DbOnGoingMission(context)
 
-        btn_insert.setOnClickListener({
+        btn_insert.setOnClickListener {
             if (et_title.text.toString().length > 0 &&
                     et_instruction.text.toString().length > 0 &&
                     et_type.text.toString().length > 0 &&
@@ -32,40 +32,38 @@ class InsertDbTest : AppCompatActivity() {
                         et_rewards.text.toString().toInt(), et_exp.text.toString().toInt(), et_level_required.text.toString().toInt())
                 db.insertData(card)
             } else {
-                Toast.makeText(context, "Please fill All Data's", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Tolong Semua Data Diisi", Toast.LENGTH_SHORT).show()
             }
-        })
+        }
 
-        btn_read.setOnClickListener({
+        btn_read.setOnClickListener {
             var data = db.readData()
             tvResult.text = ""
 
             for (i in 0..(data.size - 1)) {
                 tvResult.append(data.get(i)._id.toString() + " " +
-                data.get(i).title + " " +
-                data.get(i).instruction + " " +
-                data.get(i).type + " " +
-                data.get(i).reward + " " +
-                data.get(i).exp + " " +
-                data.get(i).level + "\n")
+                        data.get(i).title + " " +
+                        data.get(i).instruction + " " +
+                        data.get(i).type + " " +
+                        data.get(i).reward + " " +
+                        data.get(i).exp + " " +
+                        data.get(i).level + "\n")
             }
-        })
+        }
 
-        btn_update.setOnClickListener({
+        btn_update.setOnClickListener {
             db.updateData()
             btn_read.performClick()
-        })
+        }
 
-        btn_delete.setOnClickListener({
+        btn_delete.setOnClickListener {
             db.deleteData()
             btn_read.performClick()
-        })
+        }
 
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-
+    fun addData(){
 
     }
 }

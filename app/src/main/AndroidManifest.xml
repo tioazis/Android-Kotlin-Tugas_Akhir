@@ -36,7 +36,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".test.Activity.SplashScreen" />
-        <activity android:name=".test.Activity.InsertDbTest"></activity>
+        <activity android:name=".test.Activity.InsertDbTest"
+            android:label="Testing Memasukkan Database Kartu"/>
+        <activity
+            android:name=".test.Activity.ActiveMission"
+            android:label="Misi Aktif" />
     </application>
 
 </manifest>
