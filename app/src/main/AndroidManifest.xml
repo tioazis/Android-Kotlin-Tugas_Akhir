@@ -39,7 +39,7 @@
         <activity android:name=".test.Activity.InsertDbTest"
             android:label="Testing Memasukkan Database Kartu"/>
         <activity
-            android:name=".test.Activity.ActiveMission"
+            android:name=".test.Activity.ActiveCards"
             android:label="Misi Aktif" />
     </application>
 

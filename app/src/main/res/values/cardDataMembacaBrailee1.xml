@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="card_title">
+        <item>Membaca Brailee Huruf Vocal</item>
+        <item>Membaca Brailee Huruf Konsonan 1</item>
+        <item>Membaca Brailee Huruf Konsonan 2</item>
+        <item>Membaca Brailee Huruf Konsonan 3</item>
+        <item>Membaca Brailee Huruf Konsonan 4</item>
+        <item>Membaca Brailee Huruf Konsonan 5</item>
+        <item>Membaca Brailee Angka 1</item>
+        <item>Membaca Brailee Angka 2</item>
+        <item>Membaca Brailee Simbol 1</item>
+        <item>Membaca Brailee Simbol 2</item>
+        <item>Membaca Brailee Huruf Campur 1</item>
+        <item>Membaca Brailee Huruf Campur 2</item>
+        <item>Membaca Brailee Huruf Campur 3</item>
+        <item>Membaca Brailee Huruf Campur 4</item>
+        <item>Membaca Brailee Huruf Campur 5</item>
+    </string-array>
+
+    <string-array name="card_instruction">
+        <item>Silahkan pelajari kartu ini yang berisi Huruf A I U E O , Lalu setelah itu silahkan ke gurumu dan bacalah di depannya. Semangaat !</item>
+        <item>Silahkan pelajari kartu ini yang berisi Huruf B C D F G , Lalu setelah itu silahkan ke gurumu dan bacalah di depannya. Semangaat !</item>
+        <item>Silahkan pelajari kartu ini yang berisi Huruf H J K L M , Lalu setelah itu silahkan ke gurumu dan bacalah di depannya. Semangaat !</item>
+        <item>Silahkan pelajari kartu ini yang berisi Huruf N P Q R S  , Lalu setelah itu silahkan ke gurumu dan bacalah di depannya. Semangaat !</item>
+        <item>Silahkan pelajari kartu ini yang berisi Huruf T V W X Y Z , Lalu setelah itu silahkan ke gurumu dan bacalah di depannya. Semangaat !</item>
+        <item>Silahkan pelajari kartu ini, Lalu setelah itu silahkan ke gurumu dan bacalah di depannya. Semangaat !</item>
+        <item>Pelajari kartu yang berisi angka ini, Lalu setelah itu silahkan ke gurumu dan bacalah di depannya</item>
+        <item>Pelajari kartu yang berisi angka ini, Lalu setelah itu silahkan ke gurumu dan bacalah di depannya</item>
+        <item>Pelajari kartu yang berisi simbol ini, Lalu setelah itu silahkan ke gurumu dan bacalah di depannya</item>
+        <item>Pelajari kartu yang berisi simbol ini, Lalu setelah itu silahkan ke gurumu dan bacalah di depannya</item>
+        <item>Silahkan pelajari kartu yang berisi kalimat-kalimat ini dan bacalah di depan guru anda</item>
+        <item>Silahkan pelajari kartu yang berisi kalimat-kalimat ini dan bacalah di depan guru anda</item>
+        <item>Silahkan pelajari kartu yang berisi kalimat-kalimat ini dan bacalah di depan guru anda</item>
+        <item>Silahkan pelajari kartu yang berisi kalimat-kalimat ini dan bacalah di depan guru anda</item>
+        <item>Silahkan pelajari kartu yang berisi kalimat-kalimat ini dan bacalah di depan guru anda</item>
+    </string-array>
+
+    <integer-array name="card_exp">
+        <item>12</item>
+        <item>13</item>
+        <item>13</item>
+        <item>13</item>
+        <item>13</item>
+        <item>17</item>
+        <item>13</item>
+        <item>12</item>
+        <item>12</item>
+        <item>15</item>
+        <item>15</item>
+        <item>25</item>
+        <item>27</item>
+        <item>30</item>
+        <item>32</item>
+    </integer-array>
+
+    <integer-array name="card_reward">
+        <item>2</item>
+        <item>2</item>
+        <item>2</item>
+        <item>2</item>
+        <item>2</item>
+        <item>2</item>
+        <item>3</item>
+        <item>3</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>7</item>
+    </integer-array>
+
+    <integer-array name="card_level">
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>2</item>
+        <item>2</item>
+        <item>2</item>
+        <item>2</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+    </integer-array>
+
+
+
+
+</resources>

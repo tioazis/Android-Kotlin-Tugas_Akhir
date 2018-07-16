@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.brid.azis.vipgame.R
 import com.brid.azis.vipgame.R.layout.activity_insert_db_test
+import com.brid.azis.vipgame.test.Database.DbCardData
 import com.brid.azis.vipgame.test.Database.DbOnGoingMission
 import com.brid.azis.vipgame.test.Model.Card
 import kotlinx.android.synthetic.main.activity_insert_db_test.*
@@ -18,7 +19,7 @@ class InsertDbTest : AppCompatActivity() {
         setContentView(activity_insert_db_test)
 
         val context = this
-        var db = DbOnGoingMission(context)
+        var db = DbCardData(context)
 
         btn_insert.setOnClickListener {
             if (et_title.text.toString().length > 0 &&
