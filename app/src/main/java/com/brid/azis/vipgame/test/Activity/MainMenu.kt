@@ -10,7 +10,6 @@ import com.brid.azis.vipgame.test.Database.DbCardData
 import com.brid.azis.vipgame.test.Model.Card
 import com.brid.azis.vipgame.test.Util.NFCutil
 import kotlinx.android.synthetic.main.activity_main_menu.*
-import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
 
 
@@ -18,8 +17,8 @@ import org.jetbrains.anko.toast
 class MainMenu : AppCompatActivity() {
 
     //NFC Variabel
-    private var mNfcAdapter: NfcAdapter? = null
-    private var mNfcMessage: String? = null //pesan NFC
+     var mNfcAdapter: NfcAdapter? = null
+     var mNfcMessage: String? = null //pesan NFC
 
     var dbCard = DbCardData(this)
 
@@ -49,7 +48,7 @@ class MainMenu : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         mNfcAdapter?.let {
-            NFCutil.enableNFCInForeground(it, this, javaClass)
+            NFCutil.enableNFCInForegroundWhileRead(it, this,javaClass)
         }
     }
 
@@ -61,10 +60,19 @@ class MainMenu : AppCompatActivity() {
         }
     }
 
-    override fun onNewIntent(intent: Intent?) {
+    override  fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
-        toast(mNfcMessage!! + " test ")
+
+        toast(intent?.action.toString())
+
+        val newMessage: String?
+        newMessage = NFCutil.retrieveNFCMessage(intent)
+        toast("""${intent?.action.toString()} $newMessage""")
+
+
     }
+
+
 
     private fun cardDataInit(){
         val title = resources.getStringArray(R.array.card_title)

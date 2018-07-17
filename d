@@ -1,0 +1,47 @@
+[33mcommit b4d5f9bfbf3429e8817159cf87b116f497f2191b[m
+Author: Azis Jabbar Susetio <tioazis@gmail.com>
+Date:   Mon Jul 16 09:43:46 2018 +0700
+
+    Penambahan data kartu, Penambahan database lainnya dan memasukkan ke recyclerView
+
+[33mcommit 161ed0a21835409be60cf5269f3b33852a1ef15e[m
+Author: Azis Jabbar Susetio <tioazis@gmail.com>
+Date:   Sun Jul 15 18:41:21 2018 +0700
+
+    Ganti Nama Beberapa class dan objek
+
+[33mcommit 4616365b26d181ef5fb17c3878eb5a2a9d624382[m
+Author: Azis Jabbar Susetio <tioazis@gmail.com>
+Date:   Sun Jul 15 18:26:25 2018 +0700
+
+    Menyelesaikan bug Database kartu
+
+[33mcommit 657192ff7e9017a4db9ca4620cb1c83527a3b83c[m
+Author: Azis Jabbar Susetio <tioazis@gmail.com>
+Date:   Sun Jul 15 16:48:45 2018 +0700
+
+    Item pada recycler View Sudah Diedit, Mantaaap !
+
+[33mcommit dd23433bfed6ec5d2c78c2feaaeccc60d47f740a[m
+Author: Azis Jabbar Susetio <tioazis@gmail.com>
+Date:   Sun Jul 15 14:05:45 2018 +0700
+
+    ActivMission Activity dan Penggunaan recyclerview di dalamnya
+
+[33mcommit 06db6c0723a283d1923f269d58e71093af84fcc0[m
+Author: Azis Jabbar Susetio <tioazis@gmail.com>
+Date:   Sun Jul 15 13:58:58 2018 +0700
+
+    Misi aktif Activity dengan menampilkan data menggunakan recyclerview
+
+[33mcommit e2ff3a1b0d3551cdf5653b93848b3ce26c67ef92[m
+Author: Azis Jabbar Susetio <tioazis@gmail.com>
+Date:   Fri Jul 13 13:49:49 2018 +0700
+
+    Database lokal sqlite
+
+[33mcommit 16b733f81340ac4772b805bc191eb7f08ee46fa4[m
+Author: Azis Jabbar Susetio <tioazis@gmail.com>
+Date:   Mon Jul 9 06:21:29 2018 +0700
+
+    Commit Pertama

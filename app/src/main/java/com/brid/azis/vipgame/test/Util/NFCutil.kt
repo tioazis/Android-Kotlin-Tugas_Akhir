@@ -31,7 +31,8 @@ object NFCutil {
 
     fun retrieveNFCMessage(intent: Intent?): String {
         intent?.let {
-            if (NfcAdapter.ACTION_NDEF_DISCOVERED == intent.action) {
+            if (NfcAdapter.ACTION_NDEF_DISCOVERED == intent.action)
+            {
                 val nDefMessages = getNDefMessages(intent)
                 nDefMessages[0].records?.let {
                     it.forEach {
@@ -45,10 +46,10 @@ object NFCutil {
                 }
 
             } else {
-                return "Dekatkan Kartu Untuk Membaca Isinya"
+                return "NDEF_DISCOVERED Not Detected"
             }
         }
-        return "Dekatkan Kartu Untuk Membaca Isinya"
+        return "Dekatkan pada hape"
     }
 
 
@@ -71,7 +72,7 @@ object NFCutil {
         nfcAdapter.disableForegroundDispatch(activity)
     }
 
-    fun <T> enableNFCInForeground(nfcAdapter: NfcAdapter, activity: Activity, classType: Class<T>) {
+    fun <T> enableNFCInForegroundWhieWrite(nfcAdapter: NfcAdapter, activity: Activity, classType: Class<T>) {
         val pendingIntent = PendingIntent.getActivity(activity, 0,
                 Intent(activity, classType).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0)
         val nfcIntentFilter = IntentFilter(NfcAdapter.ACTION_NDEF_DISCOVERED)
@@ -81,6 +82,15 @@ object NFCutil {
 
         nfcAdapter.enableForegroundDispatch(activity, pendingIntent, filters, TechLists)
     }
+
+    fun <T> enableNFCInForegroundWhileRead(nfcAdapter: NfcAdapter,activity: Activity,classType: Class<T>){
+        val pendingIntent = PendingIntent.getActivity(activity, 0,
+                Intent(activity, classType).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0)
+
+        nfcAdapter?.enableForegroundDispatch(activity, pendingIntent, null, null )
+    }
+
+
 
 
     private fun writeMessageToTag(nfcMessage: NdefMessage, tag: Tag?): Boolean {
