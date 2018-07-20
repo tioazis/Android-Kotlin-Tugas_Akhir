@@ -14,22 +14,19 @@ import com.brid.azis.vipgame.R.layout.activity_active_cards
 import com.brid.azis.vipgame.R.layout.pop_up_scan_teacher_card
 import com.brid.azis.vipgame.test.Adapter.ActiveCardsViewAdapter
 import com.brid.azis.vipgame.test.DataModel.DataCard
-import com.brid.azis.vipgame.test.Database.DbCardData
+import com.brid.azis.vipgame.test.Database.DBOnGoingMissionHelper
+import com.brid.azis.vipgame.test.Database.missionDB
 import com.brid.azis.vipgame.test.Util.NFCutil
+import org.jetbrains.anko.db.classParser
+import org.jetbrains.anko.db.select
 import org.jetbrains.anko.toast
-import java.text.SimpleDateFormat
-import java.util.*
 
 class ActiveCards : AppCompatActivity() {
 
     var MNfcAdapter: NfcAdapter? = null
     var mNfcMessage: String? = null
 
-
-    private var cards: MutableList<DataCard> = mutableListOf()
-    var db = DbCardData(this)
-
-
+    private var dataCards :MutableList<DataCard> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,31 +34,27 @@ class ActiveCards : AppCompatActivity() {
 
         MNfcAdapter = NfcAdapter.getDefaultAdapter(this)
 
-
         Toast.makeText(this,getString(R.string.TOAST_PETUNJUK), Toast.LENGTH_LONG).show()
 
         val list = findViewById<RecyclerView>(R.id.active_mission_list)
         initData()
 
         list.layoutManager = LinearLayoutManager(this)
-        list.adapter = ActiveCardsViewAdapter(cards) { dataCard: DataCard -> cardsClicked(dataCard) }
+        list.adapter = ActiveCardsViewAdapter(dataCards) { dataCard: DataCard -> cardsClicked(dataCard) }
 
     }
 
     private fun initData() {
-        var data = db.readData()
-        val dayDate = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Date())
-
-        for (i in 0..(data.size - 1)){
-            cards.add(DataCard(data.get(i)._id,data.get(i).title,data.get(i).instruction, " $dayDate"))        }
-
-        /* TODO : perbaiki sistem pengambilan kalender*/
-
+        missionDB.use {
+            val result = select(DataCard.TABLE_USERCARD)
+            val cards = result.parseList(classParser<DataCard>())
+            dataCards.addAll(cards)
+        }
 
     }
 
     private fun cardsClicked(cards:DataCard){
-        Toast.makeText(this,"Clicked: ${cards.judul}",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,"Clicked: ${cards.title}",Toast.LENGTH_SHORT).show()
 
         mNfcMessage = NFCutil.retrieveNFCMessage(this.intent)
         Toast.makeText(this,mNfcMessage!!,Toast.LENGTH_SHORT).show()

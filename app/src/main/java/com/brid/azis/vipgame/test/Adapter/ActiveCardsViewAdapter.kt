@@ -23,7 +23,7 @@ class ActiveCardsViewAdapter(val cards:List<DataCard>, val clickListener: (DataC
     override fun getItemCount(): Int = cards.size
 
     override fun onBindViewHolder(holder:CardViewHolder, position: Int) {
-        (holder as CardViewHolder).bindCards(cards[position],clickListener)
+        holder.bindCards(cards[position],clickListener)
 
     }
 
@@ -34,9 +34,9 @@ class ActiveCardsViewAdapter(val cards:List<DataCard>, val clickListener: (DataC
         val tanggal = view.findViewById<TextView>(R.id.tv_tanggalmasukkartu)
 
         fun bindCards(cards:DataCard, clickListener: (DataCard) -> Unit){
-            judul.text = cards.judul
-            petunjuk.text = cards.petunjuk
-            tanggal.text = cards.tanggal
+            judul.text = cards.title
+            petunjuk.text = cards.instruction
+            tanggal.text = cards.inputdate
 
             itemView.setOnClickListener{clickListener(cards)}
 

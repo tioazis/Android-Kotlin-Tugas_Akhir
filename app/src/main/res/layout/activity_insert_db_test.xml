@@ -116,6 +116,22 @@
             android:text="Hapus DB"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+        <Button
+            android:id="@+id/btn_selectData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Data"/>
+        <EditText
+            android:id="@+id/et_selectData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="pilih data"/>
+    </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">

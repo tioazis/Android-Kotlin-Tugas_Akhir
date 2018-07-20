@@ -88,12 +88,7 @@ object NFCutil {
                 Intent(activity, classType).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0)
 
         nfcAdapter?.enableForegroundDispatch(activity, pendingIntent, null, null )
-    }
-
-
-
-
-    private fun writeMessageToTag(nfcMessage: NdefMessage, tag: Tag?): Boolean {
+    } private fun writeMessageToTag(nfcMessage: NdefMessage, tag: Tag?): Boolean {
 
         try {
             val nDefTag = Ndef.get(tag)
@@ -137,4 +132,9 @@ object NFCutil {
         }
         return false
     }
+
+
+
+
+
 }
