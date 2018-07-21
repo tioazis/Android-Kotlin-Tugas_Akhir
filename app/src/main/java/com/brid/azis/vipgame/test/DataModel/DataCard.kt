@@ -8,6 +8,7 @@ data class DataCard (val id : Int?,
                      val rewardExp:Int?,
                      val rewardPoint:Int?,
                      val inputdate:String?,
+                     val finishDate:String?,
                      val isDone:Boolean?,
                      val checkBy:String?){
     companion object {
@@ -20,6 +21,7 @@ data class DataCard (val id : Int?,
         const val CARD_EXP:String = "COL_EXP"
         const val CARD_REWARD:String = "COL_POINT"
         const val CARD_INPUTDATE:String =  "COL_INPUTDATE"
+        const val CARD_FINISHDATE:String = "COL_FINISHDATE"
         const val CARD_ISDONE:String = "COL_ISDONE"
         const val CARD_CHECKBY:String = "COL_CHECKBY"
 

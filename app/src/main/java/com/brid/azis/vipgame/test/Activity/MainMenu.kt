@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_main_menu.*
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.toast
 import java.text.SimpleDateFormat
+import java.time.Clock
 import java.util.*
 
 
@@ -39,9 +40,9 @@ class MainMenu : AppCompatActivity() {
         Stetho.initializeWithDefaults(this)
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this)
-        mNfcMessage = NFCutil.retrieveNFCMessage(this.intent)
+        //mNfcMessage = NFCutil.retrieveNFCMessage(this.intent)
 
-        toast(mNfcMessage!!)
+//        toast(mNfcMessage!!)
 
         //cardDataInit() //mengambil data dary resource array
 
@@ -49,8 +50,12 @@ class MainMenu : AppCompatActivity() {
             startActivity(Intent(this,InsertDbTest::class.java))
         }
 
-        btn_misi_aktif.setOnClickListener{
-            startActivity(Intent(this,ActiveCards::class.java))
+        btn_unfinished_activity.setOnClickListener{
+            startActivity(Intent(this,CardsUnfinished::class.java))
+        }
+
+        btn_finished_activity.setOnClickListener{
+            startActivity(Intent(this,CardsFinished::class.java))
         }
 
     }
@@ -79,8 +84,8 @@ class MainMenu : AppCompatActivity() {
 
         addCardData(newMessage.toString().toInt())
 
-        val messageWrittenSuccessfully = NFCutil.createNFCMessage("3", intent)
-        toast(messageWrittenSuccessfully.ifElse("Sukses menginput data", "Input data gagal, silahkan ulangi"))
+//        val messageWrittenSuccessfully = NFCutil.createNFCMessage("3", intent)
+//        toast(messageWrittenSuccessfully.ifElse("Sukses menginput data", "Input data gagal, silahkan ulangi"))
 
 
 
@@ -101,10 +106,10 @@ class MainMenu : AppCompatActivity() {
                 level[id],
                 reward[id],
                 exp[id],
-                SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Date()),
+                SimpleDateFormat("dd-MM-yyyy hh:mm" , Locale.getDefault()).format(Date()),
+                getString(R.string.not_yet_started),
                 false,
                 "")
-        toast(card.title!![id].toString())
         addToUserCardDB(card)
 
     }
@@ -122,6 +127,7 @@ class MainMenu : AppCompatActivity() {
                         DataCard.CARD_REWARD to card.rewardPoint,
                         DataCard.CARD_ISDONE to card.isDone,
                         DataCard.CARD_INPUTDATE to card.inputdate,
+                        DataCard.CARD_FINISHDATE to card.finishDate,
                         DataCard.CARD_CHECKBY to card.checkBy)
             }
             Toast.makeText(this,"Data Berhasil Masuk", Toast.LENGTH_SHORT)
@@ -131,5 +137,6 @@ class MainMenu : AppCompatActivity() {
     }
 
     fun <T> Boolean.ifElse(primaryResult: T, secondaryResult: T) = if (this) primaryResult else secondaryResult
+
 
 }

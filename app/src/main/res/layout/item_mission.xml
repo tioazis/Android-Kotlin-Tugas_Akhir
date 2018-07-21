@@ -27,21 +27,47 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:paddingLeft="10dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="5pt"
             android:text="@string/text_misi_masuk_pada_tanggal"
-            android:textStyle="italic"/>
+            android:textSize="5pt"
+            android:textStyle="bold|italic" />
+
         <TextView
+            android:id="@+id/tv_cardInputDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_tanggalmasukkartu"
+            android:layout_marginLeft="10dp"
             android:text="tangggal nya adalah"
             android:textSize="5pt"
-            android:textStyle="italic"/>
+            android:textStyle="italic" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Misi diselesaikan pada :"
+            android:textSize="5pt"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/tv_cardOutputDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="tangggal nya adalah"
+            android:textSize="5pt"
+            android:textStyle="italic" />
 
     </LinearLayout>
 
@@ -50,6 +76,7 @@
         android:layout_height="2dp"
         android:background="@color/colorPrimaryDark"
         android:layout_marginTop="32dp"
+
         ></LinearLayout>
 
 

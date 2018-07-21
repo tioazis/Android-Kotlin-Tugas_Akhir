@@ -8,8 +8,8 @@ import android.widget.TextView
 import com.brid.azis.vipgame.R
 import com.brid.azis.vipgame.test.DataModel.DataCard
 
-class ActiveCardsViewAdapter(val cards:List<DataCard>, val clickListener: (DataCard) -> Unit):
-        RecyclerView.Adapter<ActiveCardsViewAdapter.CardViewHolder>(){
+class CardsViewAdapter(val cards:List<DataCard>, val clickListener: (DataCard) -> Unit):
+        RecyclerView.Adapter<CardsViewAdapter.CardViewHolder>(){
 
 
 
@@ -31,12 +31,14 @@ class ActiveCardsViewAdapter(val cards:List<DataCard>, val clickListener: (DataC
 
         val judul = view.findViewById<TextView>(R.id.tv_judulkartu)
         val petunjuk = view.findViewById<TextView>(R.id.tv_petunjukkartu)
-        val tanggal = view.findViewById<TextView>(R.id.tv_tanggalmasukkartu)
+        val tanggalMulai = view.findViewById<TextView>(R.id.tv_cardInputDate)
+        val tanggalSelesai = view.findViewById<TextView>(R.id.tv_cardOutputDate)
 
         fun bindCards(cards:DataCard, clickListener: (DataCard) -> Unit){
             judul.text = cards.title
             petunjuk.text = cards.instruction
-            tanggal.text = cards.inputdate
+            tanggalMulai.text = cards.inputdate
+            tanggalSelesai.text = cards.finishDate
 
             itemView.setOnClickListener{clickListener(cards)}
 

@@ -41,7 +41,7 @@ class InsertDbTest : AppCompatActivity() {
                         et_exp.text.toString().toInt(),
                         et_rewards.text.toString().toInt(),
                         SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Date()),
-                        false,"")
+                        "",false,"")
                 addToUserCard(card)
             } else {
                 Toast.makeText(context, "Tolong Semua Data Diisi", Toast.LENGTH_SHORT).show()

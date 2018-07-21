@@ -133,7 +133,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btn_misi_aktif"
+                android:id="@+id/btn_unfinished_activity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="3dp"
@@ -146,17 +146,17 @@
 
 
             <Button
+                android:id="@+id/btn_finished_activity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
                 android:layout_weight="3"
                 android:padding="10dp"
                 android:text="@string/misi_selesai"
+                android:textColor="@color/colorAccent"
                 android:textSize="30sp"
-                android:textStyle="bold"
 
 
-                />
+                android:textStyle="bold" />
 
 
         </LinearLayout>
