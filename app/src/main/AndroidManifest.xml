@@ -57,11 +57,16 @@
         <activity
             android:name=".test.Activity.InsertDbTest"
             android:label="Testing Memasukkan Database Kartu" />
-
-        <activity android:name=".test.Activity.CardsFinished"
-            android:label="Misi Selesai"></activity>
-        <activity android:name=".test.Activity.CardsUnfinished"
-            android:label="Misi Aktif"></activity>
+        <activity
+            android:name=".test.Activity.CardsFinished"
+            android:label="Misi Selesai" />
+        <activity
+            android:name=".test.Activity.CardsUnfinished"
+            android:label="Misi Aktif" />
+        <activity
+            android:name=".test.Activity.PlayerLogin"
+            android:label="Halaman Masuk" />
+        <activity android:name=".test.Activity.PlayerRegister"></activity>
     </application>
 
 </manifest>

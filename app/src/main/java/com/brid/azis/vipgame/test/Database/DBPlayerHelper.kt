@@ -5,21 +5,21 @@ import android.database.sqlite.SQLiteDatabase
 import com.brid.azis.vipgame.test.DataModel.DataPlayer
 import org.jetbrains.anko.db.*
 
-val Context.playerDB: DBPlayerProgressHelper
-    get() = DBPlayerProgressHelper.getInstance(applicationContext)
+val Context.playerDB: DBPlayerHelper
+    get() = DBPlayerHelper.getInstance(applicationContext)
 
 
-class DBPlayerProgressHelper (var context: Context): ManagedSQLiteOpenHelper(context, "FinalProject.db", null, 1) {
+class DBPlayerHelper (var context: Context): ManagedSQLiteOpenHelper(context, "FinalProject.db", null, 1) {
     companion object {
 
-        private var instances:DBPlayerProgressHelper? = null
+        private var instances:DBPlayerHelper? = null
 
         @Synchronized
-        fun getInstance(context: Context):DBPlayerProgressHelper{
+        fun getInstance(context: Context):DBPlayerHelper{
             if (instances == null){
-                instances = DBPlayerProgressHelper(context.applicationContext)
+                instances = DBPlayerHelper(context.applicationContext)
             }
-            return instances as DBPlayerProgressHelper
+            return instances as DBPlayerHelper
         }
     }
 
@@ -33,10 +33,13 @@ class DBPlayerProgressHelper (var context: Context): ManagedSQLiteOpenHelper(con
 
         db?.createTable( DataPlayer.TABLE_PLAYER,true,
                 DataPlayer.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
-                DataPlayer.PLAYER_NAME to INTEGER + UNIQUE,
+                DataPlayer.PLAYER_USERNAME to TEXT + UNIQUE,
+                DataPlayer.PLAYER_NAME to TEXT,
+                DataPlayer.PLAYER_PASSWORD to TEXT,
+                DataPlayer.PLAYER_POINT to INTEGER,
                 DataPlayer.PLAYER_EXP to INTEGER,
                 DataPlayer.PLAYER_LEVEL to INTEGER,
-                DataPlayer.PLAYER_MISSIONCOMPLETED to INTEGER)
+                DataPlayer.PLAYER_MISSION_COMPLETED to INTEGER)
 
 
     }

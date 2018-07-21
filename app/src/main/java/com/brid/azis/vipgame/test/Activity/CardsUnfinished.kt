@@ -40,7 +40,6 @@ class CardsUnfinished : AppCompatActivity() {
         scanDialog = Dialog (this)
         scanDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         scanDialog.setContentView(R.layout.pop_up_scan_teacher_card)
-        scanDialog.setTitle("test")
 
         MNfcAdapter = NfcAdapter.getDefaultAdapter(this)
 

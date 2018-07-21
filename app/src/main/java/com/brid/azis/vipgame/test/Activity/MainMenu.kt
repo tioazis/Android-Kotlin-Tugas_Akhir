@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteConstraintException
 import android.nfc.NfcAdapter
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Window
 import android.widget.Toast
 import com.brid.azis.vipgame.R
 import com.brid.azis.vipgame.R.layout.activity_main_menu
@@ -31,9 +32,10 @@ class MainMenu : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(activity_main_menu)
 
-        overridePendingTransition(R.anim.fade_in,R.anim.fade_out) // splash
+
 
         toast("${tv_greetings.text} ${tv_playerName.text} Level Anda ${tv_playerLevel.text}")
 
