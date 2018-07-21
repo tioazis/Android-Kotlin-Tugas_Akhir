@@ -32,9 +32,7 @@ class MainMenu : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(activity_main_menu)
-
 
 
         toast("${tv_greetings.text} ${tv_playerName.text} Level Anda ${tv_playerLevel.text}")
@@ -42,11 +40,7 @@ class MainMenu : AppCompatActivity() {
         Stetho.initializeWithDefaults(this)
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this)
-        //mNfcMessage = NFCutil.retrieveNFCMessage(this.intent)
 
-//        toast(mNfcMessage!!)
-
-        //cardDataInit() //mengambil data dary resource array
 
         btn_db.setOnClickListener{
             startActivity(Intent(this,InsertDbTest::class.java))
@@ -59,6 +53,12 @@ class MainMenu : AppCompatActivity() {
         btn_finished_activity.setOnClickListener{
             startActivity(Intent(this,CardsFinished::class.java))
         }
+
+        lay_menu_point.setOnClickListener(){
+            Toast.makeText(this,"Poin anda saat ini ${tv_playerPoints.text.toString()}",Toast.LENGTH_SHORT).show()
+        }
+
+
 
     }
 

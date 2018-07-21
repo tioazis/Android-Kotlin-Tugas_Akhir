@@ -2,7 +2,7 @@
     <string name="app_name">Aku Punya Tugas Akhir</string>
     <string name="tv_menyapa_pemain">Selamat Sore !</string>
     <string name="tv_nama_pemain">Azis Jabbar Susetio</string>
-    <string name="text_level_anda">Level Anda :</string>
+    <string name="text_level_anda">Anda berada pada level </string>
     <string name="misi_selesai">Misi Selesai</string>
     <string name="misi_aktif">Misi AKtif</string>
 

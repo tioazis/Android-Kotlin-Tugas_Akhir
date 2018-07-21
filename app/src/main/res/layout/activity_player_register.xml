@@ -20,7 +20,7 @@
             android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
             android:layout_gravity="center"
-            android:paddingBottom="50dp"/>
+            android:paddingBottom="30dp"/>
         <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -89,19 +89,40 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:layout_marginTop="25dp"
+            android:orientation="vertical"
+            android:padding="25dp"
             android:gravity="center">
 
             <Button
                 android:id="@+id/btn_regis_signup"
+                android:layout_width="181dp"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:text="daftarkan"
+                android:textColor="@color/colorAccent"
+
+                android:textStyle="bold" />
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Daftar"
-                android:textColor="@color/colorAccent"
-                android:textSize="20dp"
-                android:padding="16dp" />
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Saya sudah punya akun" />
+
+                <TextView
+                    android:id="@+id/tv_regis_login"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=", masuk"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold|italic" />
+
+            </LinearLayout>
 
 
         </LinearLayout>

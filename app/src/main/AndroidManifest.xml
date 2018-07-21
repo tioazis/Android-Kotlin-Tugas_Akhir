@@ -18,24 +18,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".test.Activity.MainMenu"
-            android:label="@string/app_name">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            android:label="Menu Utama">
 
 
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.nfc.action.NDEF_DISCOVERED" /> -->
-            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
-
-
-            <!-- <data -->
-            <!-- android:host="ext" -->
-            <!-- android:pathPrefix="/brid.com:vipgame" -->
-            <!-- android:scheme="vnd.android.nfc" /> -->
-            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".test.Activity.SplashScreen">
             <intent-filter>
@@ -66,7 +51,8 @@
         <activity
             android:name=".test.Activity.PlayerLogin"
             android:label="Halaman Masuk" />
-        <activity android:name=".test.Activity.PlayerRegister"></activity>
+        <activity android:name=".test.Activity.PlayerRegister"
+            android:label="Halaman Pendaftaran"></activity>
     </application>
 
 </manifest>
