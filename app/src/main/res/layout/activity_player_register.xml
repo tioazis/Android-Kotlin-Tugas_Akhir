@@ -94,7 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="25dp"
+            android:padding="20dp"
             android:gravity="center">
 
             <Button
@@ -116,15 +116,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Saya sudah punya akun" />
+                    android:text="Sudah memiliki akun ?" />
 
                 <TextView
                     android:id="@+id/tv_regis_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=", masuk"
+                    android:text=" Silahkan masuk"
                     android:textColor="@color/colorAccent"
-                    android:textStyle="bold|italic" />
+                    android:textStyle="bold" />
 
             </LinearLayout>
 

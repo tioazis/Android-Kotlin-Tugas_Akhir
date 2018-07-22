@@ -12,21 +12,24 @@ import android.view.animation.AnimationUtils
 import com.brid.azis.vipgame.R
 import com.brid.azis.vipgame.test.DataModel.DataCard
 import com.brid.azis.vipgame.test.DataModel.DataPlayer
+import com.brid.azis.vipgame.test.Database.DBOnGoingMissionHelper
+import com.brid.azis.vipgame.test.SharedPreferences.MyPlayerPref
+import com.brid.azis.vipgame.test.SharedPreferences.PREFERENCE_PLAYER_IS_LOGGED_IN
+import com.brid.azis.vipgame.test.SharedPreferences.PREFERENCE_PLAYER_USERNAME
 
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 import org.jetbrains.anko.db.*
 
 class SplashScreen : AppCompatActivity() {
 
-    var IS_LOGGED_IN:Int = 0
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.requestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar!!.hide()
-
         setContentView(R.layout.activity_splash_screen)
 
+        val playerPref = MyPlayerPref(this)
+        val isLoggedIn =playerPref.getPlayerIsLoggedIn(PREFERENCE_PLAYER_IS_LOGGED_IN)
 
         overridePendingTransition(R.anim.fade_in,R.anim.fade_out)
         iv_logo.startAnimation(AnimationUtils.loadAnimation(this,R.anim.splash_in))
@@ -36,8 +39,10 @@ class SplashScreen : AppCompatActivity() {
             Handler().postDelayed({
                 iv_logo.visibility = View.GONE
 
-                if (IS_LOGGED_IN == 1){
-                    startActivity(Intent(this,MainMenu::class.java))
+                if (isLoggedIn){
+                    val intent = Intent(this,MainMenu::class.java)
+                    intent.putExtra("username",playerPref.getPlayerUsername(PREFERENCE_PLAYER_USERNAME))
+                    startActivity(intent)
                 }
                 else{
                     startActivity(Intent(this,PlayerLogin::class.java))

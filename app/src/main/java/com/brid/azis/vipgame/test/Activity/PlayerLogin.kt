@@ -8,6 +8,9 @@ import android.widget.Toast
 import com.brid.azis.vipgame.R
 import kotlinx.android.synthetic.main.activity_player_login.*
 import com.brid.azis.vipgame.test.Database.DBPlayerHelper
+import com.brid.azis.vipgame.test.SharedPreferences.MyPlayerPref
+import com.brid.azis.vipgame.test.SharedPreferences.PREFERENCE_PLAYER_IS_LOGGED_IN
+import com.brid.azis.vipgame.test.SharedPreferences.PREFERENCE_PLAYER_USERNAME
 import com.brid.azis.vipgame.test.Util.InputValidation
 
 
@@ -17,6 +20,7 @@ class PlayerLogin : AppCompatActivity() {
 
     private lateinit var dbPlayerHelper: DBPlayerHelper
     private lateinit var inputValidation: InputValidation
+    lateinit var playerPref: MyPlayerPref
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,9 +28,14 @@ class PlayerLogin : AppCompatActivity() {
         setContentView(R.layout.activity_player_login)
 
         overridePendingTransition(R.anim.fade_in,R.anim.fade_out) // splash
+        playerPref = MyPlayerPref(this)
+
+
 
         inputValidation = InputValidation(activity)
         dbPlayerHelper = DBPlayerHelper(activity)
+
+
 
         tv_register.setOnClickListener(){
             startActivity(Intent(this,PlayerRegister::class.java))
@@ -50,9 +59,6 @@ class PlayerLogin : AppCompatActivity() {
         if (!inputValidation!!.isInputEditTextFilled(et_login_username!!, lay_login_username!!, getString(R.string.error_message_email))) {
             return
         }
-        if (!inputValidation!!.isInputEditTextEmail(et_login_username!!, lay_login_username!!, getString(R.string.error_message_email))) {
-            return
-        }
         if (!inputValidation!!.isInputEditTextFilled(et_login_password!!, lay_login_password!!, getString(R.string.error_message_email))) {
             return
         }
@@ -60,10 +66,14 @@ class PlayerLogin : AppCompatActivity() {
         if (dbPlayerHelper!!.checkUser(et_login_username!!.text.toString().trim { it <= ' ' }, et_login_password!!.text.toString().trim { it <= ' ' })) {
 
 
+            playerPref.setPlayerIsLoggedIn(true)
+            playerPref.setPlayerUsername(et_login_username!!.text.toString().trim { it <= ' ' })
+
             val accountsIntent = Intent(activity, MainMenu::class.java)
-            accountsIntent.putExtra("EMAIL", et_login_username!!.text.toString().trim { it <= ' ' })
+            accountsIntent.putExtra("username", et_login_username!!.text.toString().trim { it <= ' ' })
             startActivity(accountsIntent)
             emptyInputEditText()
+            finish()
 
 
 

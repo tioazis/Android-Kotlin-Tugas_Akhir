@@ -3,11 +3,13 @@ package com.brid.azis.vipgame.test.Database
 import android.content.Context
 import android.database.sqlite.SQLiteConstraintException
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteException
 import android.provider.ContactsContract
 import com.brid.azis.vipgame.test.DataModel.DataPlayer
 import org.jetbrains.anko.db.*
 
-
+val Context.playerDB: DBOnGoingMissionHelper
+    get() = DBOnGoingMissionHelper.getInstance(applicationContext)
 
 class DBPlayerHelper (var context: Context): ManagedSQLiteOpenHelper(context, "FinalProject.db", null, 1) {
     companion object {
@@ -30,35 +32,40 @@ class DBPlayerHelper (var context: Context): ManagedSQLiteOpenHelper(context, "F
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
+        createTableUser(db!!)
+    }
 
+    fun createTableUser(db: SQLiteDatabase?) {
         db?.createTable( DataPlayer.TABLE_PLAYER,true,
                 DataPlayer.PLAYER_USERNAME to TEXT + UNIQUE,
-                DataPlayer.PLAYER_NAME to TEXT,
                 DataPlayer.PLAYER_PASSWORD to TEXT,
-                DataPlayer.PLAYER_POINT to INTEGER,
+                DataPlayer.PLAYER_NAME to TEXT,
                 DataPlayer.PLAYER_EXP to INTEGER,
+                DataPlayer.PLAYER_POINT to INTEGER,
                 DataPlayer.PLAYER_LEVEL to INTEGER,
                 DataPlayer.PLAYER_MISSION_COMPLETED to INTEGER)
-
-
     }
 
     fun addUser(player:DataPlayer){
+        // ???cek database table_usercard dulu???
+
         val db = this.writableDatabase
         try {
             db.use {
                 db.insert(
                         DataPlayer.TABLE_PLAYER,
                         DataPlayer.PLAYER_USERNAME to player.username,
-                        DataPlayer.PLAYER_NAME to player.name,
                         DataPlayer.PLAYER_PASSWORD to player.password,
+                        DataPlayer.PLAYER_NAME to player.name,
+                        DataPlayer.PLAYER_EXP to player.exp,
                         DataPlayer.PLAYER_POINT to player.point,
                         DataPlayer.PLAYER_LEVEL to player.level,
-                        DataPlayer.PLAYER_EXP to player.exp,
                         DataPlayer.PLAYER_MISSION_COMPLETED to player.missionCompleted)
             }
-        }catch (e:SQLiteConstraintException){
+        } catch (e:SQLiteConstraintException){
 
+        } catch (e:SQLiteException) {
+            createTableUser(db)
         }
 
     }
@@ -139,6 +146,8 @@ class DBPlayerHelper (var context: Context): ManagedSQLiteOpenHelper(context, "F
         return false
 
     }
+
+
 
 
 }

@@ -31,7 +31,7 @@
                 android:text="@string/tv_menyapa_pemain"/>
 
             <TextView
-                android:id="@+id/tv_playerName"
+                android:id="@+id/tv_menu_playerName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
@@ -58,7 +58,7 @@
                         android:textStyle="bold"
                         />
                     <TextView
-                        android:id="@+id/tv_playerLevel"
+                        android:id="@+id/tv_menu_playerLevel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1"
@@ -67,13 +67,14 @@
                         android:layout_marginLeft="15dp"/>
                 </LinearLayout>
                 <ProgressBar
-                    android:id="@+id/pb2_experience"
+
+                    android:id="@+id/pb2_menu_experience"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:progressBackgroundTint="@color/colorPrimaryDark"
                     android:progressTint="@color/colorPrimary"
-                    android:progress="60"/>
+                    />
 
             </LinearLayout>
 
@@ -115,7 +116,7 @@
                 android:background="@color/colorPrimary"></LinearLayout>
 
             <TextView
-                android:id="@+id/tv_playerPoints"
+                android:id="@+id/tv_menu_playerPoints"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0"
@@ -190,11 +191,12 @@
             android:layout_height="wrap_content"
             />
         <Button
-            android:id="@+id/btn_log_out"
+            android:id="@+id/btn_menu_log_out"
             android:text="log out"
             android:textColor="@android:color/holo_red_dark"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 

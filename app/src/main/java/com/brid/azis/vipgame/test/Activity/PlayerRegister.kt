@@ -94,11 +94,12 @@ class PlayerRegister : AppCompatActivity() {
 
       if (!dbPlayerHelper!!.checkUser(et_regis_username!!.text.toString().trim())) {
 
-          var user = DataPlayer(name = et_regis_fullname!!.text.toString().trim(),
+          var user = DataPlayer(
                   username = et_regis_username!!.text.toString().trim(),
                   password = et_regis_password!!.text.toString().trim(),
+                  name = et_regis_fullname!!.text.toString().trim(),
+                  point = 9,
                   exp = 1,
-                  point = 1,
                   level = 1,
                   missionCompleted = 0   )
 

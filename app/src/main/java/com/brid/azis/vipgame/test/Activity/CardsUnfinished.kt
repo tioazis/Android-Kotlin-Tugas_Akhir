@@ -2,6 +2,7 @@ package com.brid.azis.vipgame.test.Activity
 
 import android.app.Dialog
 import android.content.Intent
+import android.database.sqlite.SQLiteConstraintException
 import android.nfc.NfcAdapter
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -32,6 +33,9 @@ class CardsUnfinished : AppCompatActivity() {
     private lateinit var scanDialog :Dialog
 
     private var dataCards :MutableList<DataCard> = mutableListOf()
+    private val activity = this@CardsUnfinished
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +50,6 @@ class CardsUnfinished : AppCompatActivity() {
         Toast.makeText(this,getString(R.string.TOAST_PETUNJUK), Toast.LENGTH_LONG).show()
 
         val listOfCards = findViewById<RecyclerView>(R.id.active_mission_list)
-        initData()
 
         listOfCards.layoutManager = LinearLayoutManager(this)
         listOfCards.adapter = CardsViewAdapter(dataCards) { dataCard: DataCard -> cardsClicked(dataCard) }
@@ -54,11 +57,19 @@ class CardsUnfinished : AppCompatActivity() {
 
     private fun initData() {
         dataCards.clear()
-        missionDB.use {
-            val result = select(DataCard.TABLE_USERCARD).whereArgs("(${DataCard.CARD_ISDONE} = 0)")
-            val cards = result.parseList(classParser<DataCard>())
-            dataCards.addAll(cards)
+
+        try{
+            missionDB.use {
+                val result = select(DataCard.TABLE_USERCARD).whereArgs("(${DataCard.CARD_ISDONE} = 0)")
+                val cards = result.parseList(classParser<DataCard>())
+                dataCards.addAll(cards)
+            }
+
+        }catch (e:SQLiteConstraintException){
+
+
         }
+
     }
 
     private fun cardsClicked(cards:DataCard){
@@ -92,6 +103,7 @@ class CardsUnfinished : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        initData()
         MNfcAdapter?.let {
             NFCutil.enableNFCInForegroundWhileRead(it, this, javaClass)
         }
@@ -108,6 +120,7 @@ class CardsUnfinished : AppCompatActivity() {
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
         val newMessage: String?
+
 
         if (stateOfRead == 1){
             newMessage = NFCutil.retrieveNFCMessage(intent)
