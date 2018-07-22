@@ -13,7 +13,7 @@ data class DataPlayer (
             const val PLAYER_USERNAME = "COL_USERNAME"
             const val PLAYER_NAME = "COL_NAME"
             const val PLAYER_PASSWORD = "COL_PASS"
-            const val PLAYER_EXP:String = "COL_TITLE"
+            const val PLAYER_EXP:String = "COL_EXP"
             const val PLAYER_LEVEL:String = "COL_LEVEL"
             const val PLAYER_POINT:String = "COL_POINT"
             const val PLAYER_MISSION_COMPLETED:String = "COL_MISSION_COMPLETED"

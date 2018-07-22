@@ -15,7 +15,10 @@ import com.brid.azis.vipgame.R
 import com.brid.azis.vipgame.R.layout.activity_cards_unfinished
 import com.brid.azis.vipgame.test.Adapter.CardsViewAdapter
 import com.brid.azis.vipgame.test.DataModel.DataCard
+import com.brid.azis.vipgame.test.DataModel.DataPlayer
 import com.brid.azis.vipgame.test.Database.missionDB
+import com.brid.azis.vipgame.test.Database.playerDB
+import com.brid.azis.vipgame.test.Singleton.CurrentPlayer
 import com.brid.azis.vipgame.test.Util.NFCutil
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.select
@@ -35,6 +38,11 @@ class CardsUnfinished : AppCompatActivity() {
     private var dataCards :MutableList<DataCard> = mutableListOf()
     private val activity = this@CardsUnfinished
 
+    var curPlayer : CurrentPlayer? = null
+
+
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,12 +55,16 @@ class CardsUnfinished : AppCompatActivity() {
 
         MNfcAdapter = NfcAdapter.getDefaultAdapter(this)
 
+
+
         Toast.makeText(this,getString(R.string.TOAST_PETUNJUK), Toast.LENGTH_LONG).show()
 
         val listOfCards = findViewById<RecyclerView>(R.id.active_mission_list)
 
         listOfCards.layoutManager = LinearLayoutManager(this)
         listOfCards.adapter = CardsViewAdapter(dataCards) { dataCard: DataCard -> cardsClicked(dataCard) }
+
+        curPlayer = applicationContext as CurrentPlayer
     }
 
     private fun initData() {
@@ -77,13 +89,12 @@ class CardsUnfinished : AppCompatActivity() {
         cardsId = cards.id.toString().toInt()
 
 
-        scanTeacherCard(cardsId)
+        scanTeacherCard()
     }
 
 
 
-    private fun scanTeacherCard(cardsID:Int?){
-
+    private fun scanTeacherCard() {
 
         val buttonPopup = scanDialog.findViewById<View>(R.id.btn_cancelCard)
 
@@ -120,6 +131,8 @@ class CardsUnfinished : AppCompatActivity() {
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
         val newMessage: String?
+        val exp = resources.getIntArray(R.array.card_exp)
+        val reward = resources.getIntArray(R.array.card_reward)
 
 
         if (stateOfRead == 1){
@@ -135,8 +148,35 @@ class CardsUnfinished : AppCompatActivity() {
                         .exec()
             }
 
+            curPlayer!!.addPointBy(reward[cardsId.toString().toInt()])
+            curPlayer!!.addExpBy(exp[cardsId.toString().toInt()])
+
+            setCurrentPlayerDataToDatabase(curPlayer!!.GetPlayerEmail())
+
+
             scanDialog.cancel()
+
+            finish()
+            startActivity(intent)
+        }
+
+
+    }
+
+    private fun setCurrentPlayerDataToDatabase(username: String){
+
+
+        playerDB.use {
+            update(DataPlayer.TABLE_PLAYER,
+                    DataPlayer.PLAYER_POINT to curPlayer!!.GetPlayerPoint(),
+                    DataPlayer.PLAYER_EXP to curPlayer!!.GetPlayerExp(),
+                    DataPlayer.PLAYER_LEVEL to curPlayer!!.GetPlayerLevel(),
+                    DataPlayer.PLAYER_POINT to curPlayer!!.GetPlayerPoint(),
+                    DataPlayer.PLAYER_PASSWORD to curPlayer!!.GetPlayerMissionCompleted()).
+                    whereArgs("${DataPlayer.PLAYER_USERNAME} = '$username'").exec()
         }
     }
+
+
 
 }

@@ -22,7 +22,7 @@ class CurrentPlayer : Application() {
         name = value!!
     }
 
-    fun SetPlayerEmail():String{
+    fun GetPlayerEmail():String{
         return email
     }
 
@@ -88,6 +88,22 @@ class CurrentPlayer : Application() {
 
     fun addMissionCompletedBy(value:Int?){
         missionCompleted += value!!
+    }
+
+    fun lessPointBy(value: Int?){
+        point -= value!!
+    }
+
+    fun lessExpBy(value: Int?){
+        exp -= value!!
+    }
+
+    fun lessLevelBy(value: Int?){
+        level -= value!!
+    }
+
+    fun lessMissionCompleteBy(value: Int?){
+        missionCompleted -= value!!
     }
 
     // Reset
