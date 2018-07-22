@@ -13,6 +13,10 @@
     <string name="text_misi_masuk_pada_tanggal">Misi dimasukkan pada  : </string>
     <string name="tv_yourPoint">POIN ANDA</string>
     <string name="not_yet_started">Belum Dimulai</string>
+    <string name="error_message_name">Masukan data yang benar</string>
+    <string name="error_message_email">Masukkan email yang valid</string>
+    <string name="error_message_password">Masukkan password yang valid</string>
+    <string name="error_password_match">Password anda tidak sama</string>
 
     <!-- Data Awal -->
 

@@ -12,7 +12,7 @@ import android.view.animation.AnimationUtils
 import com.brid.azis.vipgame.R
 import com.brid.azis.vipgame.test.DataModel.DataCard
 import com.brid.azis.vipgame.test.DataModel.DataPlayer
-import com.brid.azis.vipgame.test.Database.playerDB
+
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 import org.jetbrains.anko.db.*
 

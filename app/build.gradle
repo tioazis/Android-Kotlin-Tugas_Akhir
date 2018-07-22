@@ -41,6 +41,8 @@ dependencies {
     implementation "org.jetbrains.anko:anko-recyclerview-v7-coroutines:$anko_version"
     implementation "com.android.support:recyclerview-v7:27.1.1"
 
+    implementation 'com.android.support:design:27.1.1'
+
     //anko
     implementation "org.jetbrains.anko:anko:$anko_version"
     implementation "org.jetbrains.anko:anko-design:$anko_version"
